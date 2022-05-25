@@ -10,19 +10,11 @@ This modified and updated utility library is now completely ready for tackling c
 
 ## Installation Instructions
 
-    npm install https://github.com/holy-script/Verbal_Expressions
-
-#### Or
-
-    npm install https://github.com/applibgroup/Verbal_Expressions
+    npm install https://github.com/Applib-OpenHarmony/Verbal_Expressions
 
 ## After Installation, For Local Demonstration, Run
 
     npm install
-
-#### Then
-
-    npx json-server --watch db.json
 
 ## Change Log
 
