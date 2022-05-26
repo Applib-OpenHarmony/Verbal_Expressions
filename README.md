@@ -2,9 +2,7 @@
 
 ## JS Verbal Expressions - HMOS
 
-Verbal Expressions is a Javascript library that helps construct difficult regular expressions.
-
-Not everyone is a regex expert, and in practical use cases, a developer needs a semantic, understandable and API-based approach for string matching.
+Verbal Expressions is a Javascript library that helps construct difficult regular expressions. A developer needs a semantic, understandable and API-based approach for string matching.
 
 This modified and updated utility library is now completely ready for tackling complex problems in Harmony OS.
 
@@ -12,21 +10,19 @@ This modified and updated utility library is now completely ready for tackling c
 
     npm install https://github.com/Applib-OpenHarmony/Verbal_Expressions
 
-## After Installation, For Local Demonstration, Run
+#### After Installation, For Local Demonstration, Run
 
     npm install
 
-## Change Log
+## Usage Instructions
 
-* A complete overhaul of the library structure to support working imports in HMOS
+```js
+import VerEx from "ohos_verbal_expressions"
+```
 
-* Addition of 4 lookaround combinations (positive / negative, lookahead / lookbehind)
+## Usecases
 
-* Autocomplete and ESLint support with helpful information on the new API functionalities as you code
-
-## Examples
-
-Here are some simple examples to give an idea of how VerbalExpressions works:
+Here are some simple usecases to give an idea of how VerbalExpressions works:
 
 ### Testing if we have a valid URL
 
@@ -77,4 +73,23 @@ const result = VerEx().find('red').replace('We have a red house', 'blue');
 
 // Outputs "We have a blue house"
 alert(result);
+```
+
+### Password Validation
+
+Rules for password:
+*  It must have between 6 and 10 alphanumeric or underscore characters.
+*  It must include at least two lowercase letter.
+*  It must include at least three uppercase letters.
+*  It must include at least one digit.
+
+```js
+regex = VerEx()
+            .positiveLookAhead(VerEx().multiple(VerEx().anyOf('a-zA-Z0-9_'), 6, 10))
+            .positiveLookAhead(VerEx().multiple(VerEx().anythingBut('a-z').oneOrMore().anyOf('a-z'), 2))
+            .positiveLookAhead(VerEx().multiple(VerEx().anythingBut('A-Z').oneOrMore().anyOf('A-Z'), 3))
+            .positiveLookAhead(VerEx().multiple(VerEx().anythingBut('0-9').oneOrMore().anyOf('0-9'), 1))
+
+//Testing if the password is valid - returns a boolean
+regex.toRegExp().test(this.password)
 ```
