@@ -1,0 +1,27 @@
+<div class="page">
+    <div class="card">
+        <text class="{{ disappear }}" if="{{ !validated }}" style="font-size: 75px; font-weight: bold; color: black;">Password Validation</text>
+        <input class="{{ disappear }}" if="{{ !validated }}" value="{{ p }}" style="width: 80%; font-size: 30px; margin-top: 50px; margin-bottom: 50px; align-self: center; background-color: darkgray; opacity: 0.7" type="password"></input>
+        <button class="{{disappear}} btn" if="{{ !validated }}" onclick="validatePassword" value="Submit"></button>
+
+        <text class="{{ disappear }}" if="{{ manipulated }}" style="font-size: 75px; font-weight: bold; color: black;">Substring Manipulation</text>
+        <button class="{{disappear}} btn" if="{{ manipulated }}" onclick="substringManipulation" value="Transform"></button>
+        <text class="{{ disappear }}" if="{{ manipulated }}" style="margin: 20px; color: black; font-size: 40px; font-weight: bold;">Movie List:</text>
+        <text class="{{ disappear }}" if="{{ manipulated }}" for="{{movie in movies}}" style="margin: 10px; color: black; font-size: 30px; font-weight: bold;">{{ movie }}</text>
+
+        <text class="{{ disappear }}" if="{{ sanitized }}" style="font-size: 75px; font-weight: bold; color: black;">Sanitization Extraction Matching</text>
+        <input class="{{ disappear }}" if="{{ sanitized }}" value="{{ username }}" style="width: 80%; font-size: 30px; margin-top: 50px; margin-bottom: 50px; align-self: center; background-color: darkgray; opacity: 0.7" type="text"></input>
+        <button class="{{ disappear }} btn" if="{{ sanitized }}" onclick="fieldSanitization">Submit</button>
+
+        <text class="{{ disappear }}" if="{{ inserted }}" style="font-size: 75px; font-weight: bold; color: black;">Dynamic Insertion with JSX (Console)</text>
+        <button class="{{ disappear }} btn" if="{{ inserted }}" onclick="dynamicInsertion">Insert</button>
+
+
+
+    </div>
+
+    <div style="margin-top: 20px;">
+        <input checked="false" type="checkbox" onchange="changeChecked" value="Move on" style="color: black;"/><text style="color: black;font-size: 35; color: white;">Move On?</text>
+    </div>
+
+</div>
